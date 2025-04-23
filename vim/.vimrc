@@ -3,6 +3,7 @@ let mapleader = " "
 let maplocalleader = " "
 
 syntax on                                                 " enable syntax highlighting
+set confirm
 set number                                              " show line numbers
 set relativenumber                            " show relative numbers
 set tabstop=2                                         " set tab width to 2 spaces
@@ -23,17 +24,11 @@ set signcolumn=yes " Keep signcolumn on by default
 set updatetime=250 " Decrease update time
 set timeoutlen=300 " Time to wait for a mapped sequence to complete (in milliseconds)
 set splitbelow " Horizontal splits below current window
-set cursorline
-set confirm
 "set splitright " Vertical splits to the right
 "set showmatch " show the matching part of pairs [] {} and ()
+set cursorline
+set noshowmode
 set laststatus=2 " Show status bar
-"set statusline=%f " Path to the file
-"set statusline+=%= " Switch to the right side
-"set statusline+=%l " Current line
-"set statusline+=/ " Separator
-"set statusline+=%L " Total lines
-
 set statusline=%#StatusLine#
 set statusline+=\ %{ModeName()}
 set statusline+=\ \ %F
@@ -61,6 +56,7 @@ imap <C-Space> <C-X><C-O>
 "nnoremap <leader>e :echo "  Opening file explorer..." \| :Explore<CR>
 "nnoremap <leader>f :echo "  Search Files..."<CR>
 nnoremap <leader>s :w \| echo "💾 File Saved!"<CR>
+nnoremap <leader>t :terminal<CR>
 
 " Netrw appearance
 let g:netrw_banner = 0 " no banner at the top
@@ -82,22 +78,29 @@ endfunction
 nnoremap <leader>e :call ToggleNetrw()<CR>
 
 " Return file icon
+" Alternative 'javascript':'',
 function! FileIcon()
   let l:icons = {
-        \'javascript':'',
+        \'c':'',
+        \'sh':'',
+        \'go':'',
+        \'lua':'',
+        \'cpp':'',
+        \'vim':'',
+        \'java':'',
+        \'text':'',
+        \'python':'',
+        \'javascript':'',
+        \'typescript':'',
         \'typescriptreact':'',
         \'javascriptreact':'',
-        \'vim':'',
-        \'typescript':'',
-        \'python':'',
+        \'git':'',
+        \'gitignore':'',
         \'css':'',
-        \'text':'',
         \'html':'',
+        \'json':'',
+        \'conf':'',
         \'markdown':'',
-        \'go':'',
-        \'cpp':'',
-        \'c':'',
-        \'java':''
         \}
   let l:ft = &filetype
   return get(l:icons, l:ft, '') " default icon if not found
@@ -122,12 +125,12 @@ endfunction
 " Return the current vim mode
 function! ModeName()
   let l:m = mode()
-  return l:m ==# 'n' ? 'NORMAL' :
-        \ l:m ==# 'i' ? 'INSERT' :
-        \ l:m ==# 'v' ? 'VISUAL' :
-        \ l:m ==# 'V' ? 'V-LINE' :
-        \ l:m ==# '' ? 'V-BLOCK' :
-        \ l:m ==# 'R' ? 'REPLACE' :
-        \ l:m ==# 'c' ? 'COMMAND' :
-        \ l:m
+  return l:m ==# 'n' ? 'Normal' :
+        \ l:m ==# 'i' ? 'Insert' :
+        \ l:m ==# 'v' ? 'Visual' :
+        \ l:m ==# 'V' ? 'V-Line' :
+        \ l:m ==# '' ? 'V-Block' :
+        \ l:m ==# 'R' ? 'Replace' :
+        \ l:m ==# 'c' ? 'Command' :
+        \ l:
 endfunction
