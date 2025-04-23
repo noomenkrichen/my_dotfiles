@@ -10,6 +10,7 @@ set smartindent
 set formatoptions+=cro
 set cursorline                                " highlight the current line
 set relativenumber                            " show relative numbers
+set mouse=a                                   " Enable mouse mode
 
 set cursorline
 highlight LineNr guifg=#5c6370                " Line numbers (grayish)
@@ -42,3 +43,14 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#Complete
 autocmd FileType css setlocal omnifunc=csscomplete#Complete
 " Map <Ctrl-Space> to trigger omni-completion
 imap <C-Space> <C-X><C-O>
+
+" Open Netrw like a sidebar with -
+nnoremap - :Vexplore<CR>
+" Open netrw at Vim start if started without a file
+autocmd VimEnter * if argc() == 0 | Explore | endif
+" Netrw appearance
+let g:netrw_banner = 0 " no banner at the top
+let g:netrw_liststyle = 3 " tree-style listing
+let g:netrw_browse_split = 4 " open files in previously opened window
+"let g:netrw_altv = 1 " open file to the right of netrw
+let g:netrw_winsize = 25 " sidebar width 25 column in vertical split or 25 rows in horizontal split
