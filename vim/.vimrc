@@ -23,36 +23,51 @@ set signcolumn=yes " Keep signcolumn on by default
 set updatetime=250 " Decrease update time
 set timeoutlen=300 " Time to wait for a mapped sequence to complete (in milliseconds)
 set splitbelow " Horizontal splits below current window
+set cursorline
 "set splitright " Vertical splits to the right
 "set showmatch " show the matching part of pairs [] {} and ()
 set laststatus=2 " Show status bar
-set statusline=%f " Path to the file
-set statusline+=%= " Switch to the right side
-set statusline+=%l " Current line
-set statusline+=/ " Separator
-set statusline+=%L " Total lines
+"set statusline=%f " Path to the file
+"set statusline+=%= " Switch to the right side
+"set statusline+=%l " Current line
+"set statusline+=/ " Separator
+"set statusline+=%L " Total lines
+set statusline=%#StatusLine#
+set statusline+=\ \ %F\       " Folder icon + file path
+set statusline+=%=%#StatusLine#
+set statusline+=\ \ %l:%c     " Clock icon + line:col
 
-set cursorline
-highlight LineNr guifg=#5c6370                " Line numbers (grayish)
-highlight CursorLineNr guifg=#ffcc66
-
-set termguicolors                             " setting modern colors
-highlight Normal guibg=#1e1e1e guifg=#d4d4d4  " Background and default text color
-highlight Comment guifg=#6a9955 gui=italic    " Comments (grayish)
-highlight Keyword guifg=#c678dd               " Keywords (purple)
-highlight Function guifg=#61afef              " Functions (blue)
-highlight String guifg=#98c379                " Strings (green)
-highlight Identifier guifg=#ffffff            " Variables (white)
-highlight Constant guifg=#d19a66              " Constants (orange)
-highlight Operator guifg=#f92672              " Operators (pinkish)
-highlight CursorLine guibg=#333333            " Cursor line highlighting
-
+" Colorsheme
+set termguicolors
+colorscheme tokyonight
+"highlight CursorLineNr guifg=#ffcc66
+"highlight LineNr guifg=#5c6370                " Line numbers (grayish)
+"highlight Normal guibg=#1e1e1e guifg=#d4d4d4  " Background and default text color
+"highlight Comment guifg=#6a9955 gui=italic    " Comments (grayish)
+"highlight Keyword guifg=#c678dd               " Keywords (purple)
+"highlight Function guifg=#61afef              " Functions (blue)
+"highlight String guifg=#98c379                " Strings (green)
+"highlight Identifier guifg=#ffffff            " Variables (white)
+"highlight Constant guifg=#d19a66              " Constants (orange)
+"highlight Operator guifg=#f92672              " Operators (pinkish)
+"highlight CursorLine guibg=#333333            " Cursor line highlighting
 " Transparency
 "highlight Normal guibg=NONE ctermbg=NONE
-
 " Bold and Italics
-highlight Comment gui=italic
-highlight Function gui=bold
+"highlight Comment gui=italic
+"highlight Function gui=bold
+
+" === Netrw Appearance Tweaks ===
+autocmd FileType netrw highlight netrwDir       guifg=#7aa2f7 gui=bold
+autocmd FileType netrw highlight netrwClassify  guifg=#ff9e64
+autocmd FileType netrw highlight netrwLink      guifg=#9ece6a
+autocmd FileType netrw highlight netrwSymLink   guifg=#9ece6a
+autocmd FileType netrw highlight netrwExe       guifg=#7dcfff
+autocmd FileType netrw highlight netrwComment   guifg=#5c6370
+autocmd FileType netrw highlight netrwList      guifg=#c0caf5
+autocmd FileType netrw highlight netrwHelpCmd   guifg=#bb9af7
+autocmd FileType netrw highlight netrwCmdSep    guifg=#3b4261
+autocmd FileType netrw highlight netrwVersion   guifg=#444b6a
 
 " Enable omni completion for HTML, JavaScript, and CSS
 filetype plugin on
@@ -65,7 +80,12 @@ autocmd FileType css setlocal omnifunc=csscomplete#Complete
 imap <C-Space> <C-X><C-O>
 
 " Open Netrw like a sidebar with -
-nnoremap - :Vexplore<CR>
+"nnoremap - :Vexplore<CR>
+nnoremap <leader>e :Vexplore<CR>
+nnoremap <leader>e :echo "  Opening file explorer..." \| :Explore<CR>
+nnoremap <leader>f :echo "  Search Files..."<CR>
+nnoremap <leader>s :w \| echo "💾 File Saved!"<CR>
+
 " Netrw appearance
 let g:netrw_banner = 0 " no banner at the top
 let g:netrw_liststyle = 3 " tree-style listing
