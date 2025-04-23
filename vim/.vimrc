@@ -58,6 +58,18 @@ imap <C-Space> <C-X><C-O>
 nnoremap <leader>s :w \| echo "💾 File Saved!"<CR>
 nnoremap <leader>t :terminal<CR>
 
+" window management
+nnoremap <leader>v <C-w>v
+nnoremap <leader>h <C-w>s
+nnoremap <leader>se <C-w>=
+nnoremap <leader>xs :close<CR>
+
+" Navigate between splits
+nnoremap <C-k> :wincmd k<CR>
+nnoremap <C-j> :wincmd j<CR>
+nnoremap <C-h> :wincmd h<CR>
+nnoremap <C-l> :wincmd l<CR>
+
 " Netrw appearance
 let g:netrw_banner = 0 " no banner at the top
 let g:netrw_liststyle = 3 " tree-style listing
