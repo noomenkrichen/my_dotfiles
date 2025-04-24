@@ -34,7 +34,7 @@ set statusline+=\ %{ModeName()}
 set statusline+=\ \ %F
 set statusline+=%=%#StatusLine#
 set statusline+=\ %{FileIcon()}\ %{&filetype}\ %{&fileencoding}\[%{&fileformat}]\ %{FileSize()}
-set statusline+=\ %l:%c
+set statusline+=\ %p%%\ %l:%c
 
 " Colorsheme
 set termguicolors
