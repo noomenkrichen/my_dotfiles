@@ -38,7 +38,15 @@ set statusline+=\ %p%%\ %l:%c
 
 " Colorsheme
 set termguicolors
-colorscheme tokyonight
+" Below is the list of available color shemes.
+" Uncomment the color sheme of your choice and comment all the other ones.
+"colorscheme atom
+colorscheme nord
+"colorscheme iceberg
+"colorscheme onedark
+"colorscheme sonokai
+"colorscheme tokyonight
+"colorscheme orange-moon
 
 " Enable omni completion for HTML, JavaScript, and CSS
 filetype plugin on
