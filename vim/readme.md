@@ -11,3 +11,6 @@ mv * ~/
 ```
 
 After that yyou can delete the temp folder
+```bash
+sudo rm -r ${XDG_CONFIG_HOME:-$HOME}/temp
+```
