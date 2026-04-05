@@ -2,30 +2,30 @@
 let mapleader = " "
 let maplocalleader = " "
 
-syntax on                                                 " enable syntax highlighting
+syntax on               " Enable syntax highlighting
 set confirm
-set number                                              " show line numbers
-set relativenumber                            " show relative numbers
-set tabstop=2                                         " set tab width to 2 spaces
-set shiftwidth=2                                    " set indentation width to 2 spaces
+set number              " Show line numbers
+set relativenumber      " Show relative numbers
+set tabstop=2           " Set tab width to 2 spaces
+set shiftwidth=2        " Set indentation width to 2 spaces
 set softtabstop=2
 set smarttab
-set expandtab                                         " use spaces instead of tabs
+set expandtab           " Use spaces instead of tabs
 set autoindent
 set smartindent
 set formatoptions+=cro
-set cursorline                                " highlight the current line
-set mouse=a " Enable mouse mode
-set breakindent " Enable break indent
-set undofile " Save undo history
-set ignorecase " Case-insensitive searching unless \C or capital in search
-set smartcase " Enable smart case
-set signcolumn=yes " Keep signcolumn on by default
-set updatetime=250 " Decrease update time
-set timeoutlen=300 " Time to wait for a mapped sequence to complete (in milliseconds)
-set splitbelow " Horizontal splits below current window
-"set splitright " Vertical splits to the right
-"set showmatch " show the matching part of pairs [] {} and ()
+set cursorline          " Highlight the current line
+set mouse=a             " Enable mouse mode
+set breakindent         " Enable break indent
+"set undofile           " Save undo history
+set ignorecase          " Case-insensitive searching unless \C or capital in search
+set smartcase           " Enable smart case
+set signcolumn=yes      " Keep signcolumn on by default
+set updatetime=250      " Decrease update time
+set timeoutlen=300      " Time to wait for a mapped sequence to complete (in milliseconds)
+set splitbelow          " Horizontal splits below current window
+"set splitright         " Vertical splits to the right
+set showmatch           " Show the matching part of pairs [] {} and ()
 set cursorline
 set noshowmode
 set laststatus=2 " Show status bar
@@ -38,6 +38,7 @@ set statusline+=\ %p%%\ %l:%c
 
 " Colorsheme
 set termguicolors
+
 " Below is the list of available color shemes.
 " Uncomment the color sheme of your choice and comment all the other ones.
 "colorscheme atom
@@ -47,6 +48,13 @@ colorscheme nord
 "colorscheme sonokai
 "colorscheme tokyonight
 "colorscheme orange-moon
+
+" Transparency
+"highlight Normal guib=NONE ctermbg=NONE
+"highlight NonText guib=NONE ctermbg=NONE
+"highlight LineNr guib=NONE ctermbg=NONE
+"highlight SignColumn guib=NONE ctermbg=NONE
+"highlight EndOfBuffer guib=NONE ctermbg=NONE
 
 " Enable omni completion for HTML, JavaScript, and CSS
 filetype plugin on
