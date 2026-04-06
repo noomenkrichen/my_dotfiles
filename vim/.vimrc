@@ -87,11 +87,11 @@ nnoremap <C-h> :wincmd h<CR>
 nnoremap <C-l> :wincmd l<CR>
 
 " Netrw appearance
-let g:netrw_banner = 0 " no banner at the top
-let g:netrw_liststyle = 3 " tree-style listing
-let g:netrw_browse_split = 4 " open files in previously opened window
-"let g:netrw_altv = 1 " open file to the right of netrw
-let g:netrw_winsize = 25 " sidebar width 25 column in vertical split or 25 rows in horizontal split
+let g:netrw_banner = 0        " No banner at the top
+let g:netrw_liststyle = 3     " Tree-style listing
+let g:netrw_browse_split = 4  " Open files in previously opened window
+"let g:netrw_altv = 1         " Open file to the right of netrw
+let g:netrw_winsize = 25      " Sidebar width 25 column in vertical split or 25 rows in horizontal split
 
 " Toggle Netrw open/close like a sidebar
 function! ToggleNetrw()
@@ -108,30 +108,38 @@ nnoremap <leader>e :call ToggleNetrw()<CR>
 " Return file icon
 " Alternative 'javascript':'',
 function! FileIcon()
-  let l:icons = {
-        \'c':'',
-        \'sh':'',
-        \'go':'',
-        \'lua':'',
-        \'cpp':'',
-        \'vim':'',
-        \'java':'',
-        \'text':'',
-        \'python':'',
-        \'javascript':'',
-        \'typescript':'',
-        \'typescriptreact':'',
-        \'javascriptreact':'',
-        \'git':'',
-        \'gitignore':'',
-        \'css':'',
-        \'html':'',
-        \'json':'',
-        \'conf':'',
-        \'markdown':'',
-        \}
-  let l:ft = &filetype
-  return get(l:icons, l:ft, '') " default icon if not found
+let l:icons = {
+    \'c':               '󰙱',
+    \'sh':              '󱆃',
+    \'go':              '󰟓',
+    \'lua':             '󰢱',
+    \'cpp':             '󰙲',
+    \'vim':             '',
+    \'java':            '',
+    \'text':            '󰈙',
+    \'python':          '󰌠',
+    \'javascript':      '󰌞',
+    \'typescript':      '󰛦',
+    \'typescriptreact': '󰜈',
+    \'javascriptreact': '󰜈',
+    \'git':             '󰊢',
+    \'gitignore':       '󰊢',
+    \'css':             '󰌜',
+    \'html':            '󰌝',
+    \'json':            '󰘦',
+    \'conf':            '󰒓',
+    \'markdown':        '󰍔',
+    \}
+
+"  let l:icons = {
+"        \'c':'',
+"        \'sh':'',
+"        \'cpp':'',
+"        \'css':'',
+"        \}
+
+let l:ft = &filetype
+  return get(l:icons, l:ft, '')  " Default icon if not found
 endfunction
 
 " Return file size
